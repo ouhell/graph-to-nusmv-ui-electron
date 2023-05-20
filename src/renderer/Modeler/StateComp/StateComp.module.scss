@@ -1,0 +1,21 @@
+.State {
+  border-radius: 100%;
+  background-color: #ffff;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+
+  outline: 3px solid gray;
+  &.selected {
+    outline: 3px solid lightskyblue;
+    color: orangered;
+  }
+}
