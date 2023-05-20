@@ -85,8 +85,7 @@ function assigne(states: State[]) {
 
     const destinations = state.destinations.join(', ');
 
-    const relocation =
-      state.destinations.length > 1 ? `{${destinations}}` : destinations;
+    let relocation = `{ ${destinations} }`;
     generatedCode += ` s = ${state.name} : ${relocation};\n`;
   });
 
