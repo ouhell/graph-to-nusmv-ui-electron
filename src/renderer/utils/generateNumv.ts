@@ -103,7 +103,6 @@ function assigne(states: State[]) {
 }
 
 function checkStates(states: State[]) {
-  console.log(states);
   let tokenCount = -1;
   if (states.length === 0) throw new Error('no states or relations');
   states.forEach((state) => {

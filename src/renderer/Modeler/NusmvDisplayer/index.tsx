@@ -13,7 +13,7 @@ function NusmvDispalyer({ isOpen, onClose, states }: Props) {
     const compile = () => {
       try {
         const generatedOs = generateOS(states);
-        console.log('generated os', generatedOs);
+
         const generatedNusmv = generateNusmv(generatedOs.trim());
         setnusmvCode(generatedNusmv);
       } catch (e: any) {

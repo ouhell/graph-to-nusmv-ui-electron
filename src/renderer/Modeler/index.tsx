@@ -105,7 +105,7 @@ function Modeler(/* props: Props */) {
         return newStates;
       });
 
-    setMouseAction('normal');
+    // setMouseAction('normal');
   };
 
   const deleteState = (deletedName: string) => {
@@ -137,7 +137,7 @@ function Modeler(/* props: Props */) {
         return newStates;
       });
 
-    setMouseAction('normal');
+    // setMouseAction('normal');
   };
 
   const linkStates = (stateName: string) => {
@@ -147,7 +147,6 @@ function Modeler(/* props: Props */) {
       const otherStateIndex = newStates.findIndex(
         (state) => state.name === selectedState
       );
-      console.log('otherstateindex: ', otherStateIndex);
 
       if (otherStateIndex === -1) return oldStates;
       const otherState = newStates[otherStateIndex];
@@ -159,7 +158,7 @@ function Modeler(/* props: Props */) {
       } else {
         newDestinations.push(stateName);
       }
-      console.log('newDestinations: ', newDestinations);
+
       newState.distinations = newDestinations;
       newStates[otherStateIndex] = newState;
 
@@ -168,6 +167,7 @@ function Modeler(/* props: Props */) {
     setSelectedState('');
     setMouseAction('normal');
   };
+
   const openSlider = () => {
     setOpen(true);
   };
@@ -238,6 +238,10 @@ function Modeler(/* props: Props */) {
         onClick={(e) => {
           if (isAdding) addState(e.clientX, e.clientY);
         }}
+        onContextMenu={(e) => {
+          e.preventDefault();
+          setMouseAction('normal');
+        }}
       >
         {states.map((state) => {
           return (
@@ -269,7 +273,6 @@ function Modeler(/* props: Props */) {
                 const midPoint = calculateMidPoint(desState, state);
                 const distance = calculateDistance(desState, state) - 60 * 2;
 
-                console.log('deg', degree);
                 const xModifier =
                   10 * (1 - Math.abs(Math.abs(degree) - 90) / 90);
                 const yModifier = 10 * (Math.abs(Math.abs(degree) - 90) / 90);

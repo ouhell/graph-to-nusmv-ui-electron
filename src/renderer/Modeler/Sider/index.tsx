@@ -36,7 +36,6 @@ function Sider({
     return { ...prev, [`p${i}`]: curr };
   }, {});
 
-  console.log('tokenValues', tokenValues);
   return (
     <Drawer
       title="Modifier"

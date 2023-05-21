@@ -57,7 +57,6 @@ function StateComp({
           const selfIndex = newStates.findIndex(
             (ostate) => state.name === ostate.name
           );
-          console.log('selfindex: ', selfIndex);
 
           if (selfIndex === -1) return oldStates;
           const self = newStates[selfIndex];
